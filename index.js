@@ -80,7 +80,7 @@ function printResult(){
     const noDestroy = document.getElementById('noDestroy');
     const hanbyeolCatchTag = document.getElementById('hanbyeolCatch');
     normal.innerHTML = "강화 - ★" + probability[currentLevel].price;
-    if (currentLevel >= 17 || probability[currentLevel].destroy == 0){ noDestroy.innerHTML = "파괴 방지 강화 (사용 불가)"; }
+    if (currentLevel > 17 || probability[currentLevel].destroy == 0){ noDestroy.innerHTML = "파괴 방지 강화 (사용 불가)"; }
     else{ noDestroy.innerHTML = "파괴 방지 강화 - ★" + (probability[currentLevel].price * 5); }
     if (hanbyeolCatch){ hanbyeolCatchTag.innerHTML = "한별캐치 끄기"; } else{ hanbyeolCatchTag.innerHTML = "한별캐치 켜기"; }
 }
@@ -100,7 +100,7 @@ function powerUp(noDestroy){
     let fail = probability[currentLevel].fail;
     let destroy = probability[currentLevel].destroy;
     if (noDestroy){
-        if (currentLevel >= 17 || probability[currentLevel].destroy == 0){
+        if (currentLevel > 17 || probability[currentLevel].destroy == 0){
             console.info("파괴 방지 사용 불가");
             return;
         }
